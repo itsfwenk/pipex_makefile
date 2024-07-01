@@ -6,7 +6,7 @@
 #    By: fli <fli@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/14 16:42:15 by fli               #+#    #+#              #
-#    Updated: 2024/07/01 17:30:09 by fli              ###   ########.fr        #
+#    Updated: 2024/07/01 17:41:20 by fli              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,7 @@ clean:
 	rm -f $(OBJ)
 	rm -f $(LIB)
 	rm -f $(OBJ_BONUS)
+	make -C $(LIBFT) fclean
 
 fclean: clean
 	rm -f $(NAME)
