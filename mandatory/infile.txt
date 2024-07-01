@@ -1,0 +1,9 @@
+1/ chien chien chien
+2/ chat chien chat chat
+3/ chat chat
+4/ chat chien chien chat
+5/ chat chat chat
+6/ chien chat
+7/ chien et chat
+8/ chat
+9/ chat et chien
