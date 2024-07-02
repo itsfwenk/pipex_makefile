@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 10:56:56 by fli               #+#    #+#             */
-/*   Updated: 2024/07/02 14:31:42 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/02 17:16:19 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	cmd1_child(int *cmd_i, t_pids	**pid_list, char **argv, char **envp)
 	pid_t	pid1;
 	t_pids	*new_nod;
 
-	if (argv[*cmd_i][0] == '\0')
-		return (write(2, "Command '' not found\n", 22), -1);
+	// if (argv[*cmd_i][0] == '\0')
+	// 	return (write(2, "Command '' not found\n", 22), -1);
 	new_nod = ft_lstnew_pipex((*cmd_i)++);
 	if (new_nod == NULL)
 		return (ft_lstclear_pipex(pid_list), -1);
@@ -31,12 +31,12 @@ int	cmd1_child(int *cmd_i, t_pids	**pid_list, char **argv, char **envp)
 	{
 		cmd1_fdr = cmd1_fd_manager(argv, new_nod);
 		if (cmd1_fdr == 2 || cmd1_fdr == 3)
-			return (close_pipe(new_nod->pipefd), free(new_nod), cmd1_fdr);
+			return (cmd1_fdr);
 		if (cmd1_exec(new_nod->cmd_i, argv, envp) == -1)
 			return (free(new_nod), -1);
 	}
 	if (dup2(new_nod->pipefd[0], STDIN_FILENO) == -1)
-		return (-1);
+		return (close_pipe(new_nod->pipefd), -1);
 	new_nod->p_id = pid1;
 	return (close_pipe(new_nod->pipefd), new_nod->status);
 }

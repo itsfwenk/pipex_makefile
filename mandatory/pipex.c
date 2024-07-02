@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 10:12:51 by fli               #+#    #+#             */
-/*   Updated: 2024/07/02 13:39:08 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/02 17:16:17 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int argc, char **argv, char **envp)
 	pid_list = NULL;
 	cmd_i = 2;
 	cmd1 = cmd1_child(&cmd_i, &pid_list, argv, envp);
-	if (cmd1 == 2 || cmd1 == 3 || cmd1 == -1)
+	if (cmd1 == 2 || cmd1 == 3)
 		exit(cmd1);
 	if (cmd2_child(cmd_i, &pid_list, argv, envp) == -1)
 		exit(EXIT_FAILURE);

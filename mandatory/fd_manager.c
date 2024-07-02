@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 10:16:14 by fli               #+#    #+#             */
-/*   Updated: 2024/07/02 15:03:34 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/02 17:23:20 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@ int	cmd1_fd_manager(char **argv, t_pids	*new_nod)
 
 	fd_in = open(argv[1], O_RDONLY);
 	if (fd_in == -1)
+	{
+		close_pipe(new_nod->pipefd);
+		free(new_nod);
 		return (infile_check(errno));
+	}
 	if (dup2(fd_in, STDIN_FILENO) == -1)
 		return (-1);
 	close(fd_in);

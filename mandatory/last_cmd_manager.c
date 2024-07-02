@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 11:31:49 by fli               #+#    #+#             */
-/*   Updated: 2024/07/02 15:04:39 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/02 17:16:18 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	cmd2_child(int cmd_i, t_pids	**pid_list, char **argv, char **envp)
 	pid_t	pid2;
 	t_pids	*new_nod;
 
-	if (argv[cmd_i][0] == '\0')
-		return (write(2, "Command '' not found\n", 22), -1);
+	// if (argv[cmd_i][0] == '\0')
+	// 	return (write(2, "Command '' not found\n", 22), -1);
 	new_nod = ft_lstnew_pipex(cmd_i);
 	if (new_nod == NULL)
 		return (ft_lstclear_pipex(pid_list), -1);
