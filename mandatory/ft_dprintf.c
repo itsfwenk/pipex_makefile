@@ -6,11 +6,11 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 10:30:22 by fli               #+#    #+#             */
-/*   Updated: 2024/07/01 11:27:14 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/02 10:11:14 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/pipex.h"
+#include "../includes/pipex.h"
 
 void	ft_dprintf_s(va_list arg_ptr, int *count, int fd)
 {

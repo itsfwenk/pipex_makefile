@@ -6,11 +6,11 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 14:22:36 by fli               #+#    #+#             */
-/*   Updated: 2024/07/01 13:48:08 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/02 14:40:21 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/pipex.h"
+#include "../includes/pipex.h"
 
 t_pids	*ft_lstnew_pipex(int cmd_i)
 {
@@ -48,15 +48,15 @@ void	ft_lstadd_back_pipex(t_pids **lst, t_pids *n)
 	}
 }
 
-void	ft_lst_new_add_back_pipex(pid_t p_id, t_pids **lst)
-{
-	t_pids	*n;
+// void	ft_lst_new_add_back_pipex(pid_t p_id, t_pids **lst)
+// {
+// 	t_pids	*n;
 
-	n = ft_lstnew_pipex(p_id);
-	if (n == NULL)
-		return ;
-	ft_lstadd_back_pipex(lst, n);
-}
+// 	n = ft_lstnew_pipex(p_id);
+// 	if (n == NULL)
+// 		return ;
+// 	ft_lstadd_back_pipex(lst, n);
+// }
 
 void	ft_lstclear_pipex(t_pids **lst)
 {
@@ -70,6 +70,7 @@ void	ft_lstclear_pipex(t_pids **lst)
 		free(*lst);
 		*lst = temp;
 	}
+	return ;
 }
 
 void	wait_pids(t_pids **lst, char **argv)

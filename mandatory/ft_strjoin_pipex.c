@@ -6,11 +6,11 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 16:31:25 by fli               #+#    #+#             */
-/*   Updated: 2024/06/26 14:19:51 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/02 10:11:18 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/pipex.h"
+#include "../includes/pipex.h"
 
 char	*ft_strjoin_pipex(char const *s1, char const *s2)
 {

@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 14:46:04 by fli               #+#    #+#             */
-/*   Updated: 2024/07/01 13:10:30 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/02 15:03:54 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,17 +57,17 @@ int	cmd1_fd_manager(char **argv, t_pids	*new_nod);
 
 int	cmd_fd_manager(t_pids	*new_nod);
 
-int	cmd2_fd_manager(int cmd_i, char **argv, t_pids	*new_nod);
+int	cmd2_fd_manager(int cmd_i, char **argv, t_pids	*new_nod, t_pids	**pid_list);
 
 int	cmd1_child(int *cmd_i, t_pids	**pid_list, char **argv, char **envp);
 
-void	cmd1_exec(int cmd_i, char **argv, char **envp);
+int	cmd1_exec(int cmd_i, char **argv, char **envp);
 
 int	cmd_exec(char **cmd, char *cmd_path, char **envp);
 
 int	cmd2_child(int cmd_i, t_pids	**pid_list, char **argv, char **envp);
 
-void	cmd2_exec(int cmd_i, char **argv, char **envp);
+int	cmd2_exec(int cmd_i, char **argv, char **envp);
 
 char	*ft_strjoin_pipex(char const *s1, char const *s2);
 

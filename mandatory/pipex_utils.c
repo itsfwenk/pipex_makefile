@@ -6,11 +6,11 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 11:40:12 by fli               #+#    #+#             */
-/*   Updated: 2024/07/01 15:40:13 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/02 14:06:46 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/pipex.h"
+#include "../includes/pipex.h"
 
  char	*get_pathname(char **envp, char *cmd)
 {
@@ -18,12 +18,10 @@
 	char	**path_tab;
 	char	*pathname_cmd;
 
-	if (*envp == NULL)
-	{
-		if (access(cmd, X_OK) == 0)
-			return (cmd);
+	if (cmd == NULL)
 		return (NULL);
-	}
+	if (access(cmd, X_OK) == 0)
+		return (cmd);
 	path_tab = get_path_tab(envp);
 	if (path_tab == NULL)
 		return (NULL);
