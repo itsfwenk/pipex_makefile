@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 14:22:36 by fli               #+#    #+#             */
-/*   Updated: 2024/07/02 14:40:21 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/03 12:59:51 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ void	wait_pids(t_pids **lst, char **argv)
 			write(2, argv[4], ft_strlen(argv[4]));
 			write(2, ": Permission denied\n", ft_strlen(": Permission denied\n"));
 		}
+		cmd_null(temp->status);
 		temp = temp->next;
 	}
 }
@@ -109,5 +110,14 @@ void	err_infile(char **argv, int status)
 	{
 		write(2, argv[1], ft_strlen(argv[1]));
 		write(2, ": No such file or directory\n", ft_strlen(": No such file or directory\n"));
+	}
+}
+
+void	cmd_null(int status)
+{
+	if (WEXITSTATUS(status) == 5)
+	{
+		write(2, "Command '' not found, but can be installed\n",
+				ft_strlen("Command '' not found, but can be installed\n"));
 	}
 }

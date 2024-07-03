@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 10:16:14 by fli               #+#    #+#             */
-/*   Updated: 2024/07/02 17:23:20 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/03 13:37:16 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ int	cmd2_fd_manager(int cmd_i, char **argv, t_pids	*new_nod, t_pids	**pid_list)
 	{
 		close_pipe((new_nod)->pipefd);
 		ft_lstclear_pipex(pid_list);
-		// free(new_nod);
 		exit(4);
 	}
 	if (dup2(fd_out, STDOUT_FILENO) == -1)

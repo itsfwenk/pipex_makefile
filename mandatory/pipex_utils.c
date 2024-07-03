@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 11:40:12 by fli               #+#    #+#             */
-/*   Updated: 2024/07/02 14:06:46 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/03 16:16:49 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,13 @@
 	{
 		pathname_cmd = ft_strjoin_pipex(path_tab[i], cmd);
 		if (pathname_cmd == NULL)
-			return (NULL);
+			return (free_split(path_tab), NULL);
 		if (access(pathname_cmd, X_OK) == 0)
-			return (free(path_tab), pathname_cmd);
+			return (free_split(path_tab), pathname_cmd);
 		i++;
 		free(pathname_cmd);
 	}
+	free_split(path_tab);
 	return (NULL);
 }
 
