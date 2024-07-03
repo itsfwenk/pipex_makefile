@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 14:46:04 by fli               #+#    #+#             */
-/*   Updated: 2024/07/01 17:35:24 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/03 17:28:47 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	cmd2_fd_manager(int cmd_i, char **argv, t_pids	*new_nod);
 
 int	cmd1_child(int *cmd_i, t_pids	**pid_list, char **argv, char **envp);
 
-void	cmd1_exec(int cmd_i, char **argv, char **envp);
+int	cmd1_exec(int cmd_i, char **argv, char **envp, t_pids	*new_nod);
 
 int	cmd_exec(char **cmd, char *cmd_path, char **envp);
 
