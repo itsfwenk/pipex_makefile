@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 10:02:34 by fli               #+#    #+#             */
-/*   Updated: 2024/07/01 16:43:32 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/04 16:08:19 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,24 @@ int	cmd_exec(char **cmd, char *cmd_path, char **envp)
 	return (0);
 }
 
+static void	del_heredoc(t_pids	*pid_list)
+{
+	char	*heredoc_name;
+	char	*i_to_a;
+
+	i_to_a = ft_itoa(pid_list->here_doc);
+	heredoc_name = ft_strjoin("here_doc", i_to_a);
+	if (heredoc_name == NULL)
+		return ;
+	unlink(heredoc_name);
+	free(heredoc_name);
+	free(i_to_a);
+}
+
 int	main(int argc, char **argv, char **envp)
 {
 	int		cmd_i;
+	int		cmd1;
 	t_pids	*pid_list;
 
 	if (argc < 5)
@@ -29,21 +44,21 @@ int	main(int argc, char **argv, char **envp)
 	pid_list = NULL;
 	cmd_i = 2;
 	if (ft_strncmp(argv[1], "here_doc", ft_strlen("here_doc")) == 0)
-	{
-		if_here_doc(argv);
-		cmd_i = 3;
-	}
-	if (cmd1_child(&cmd_i, &pid_list, argv, envp) == -1)
-		exit(EXIT_FAILURE);
+		cmd_i++;
+	// if (ft_strncmp(argv[1], "here_doc", ft_strlen("here_doc")) == 0)
+	// 	if_here_doc(&pid_list, argv, &cmd_i);
+	cmd1 = cmd1_child(&cmd_i, &pid_list, argv, envp);
+	if (cmd1 == 2 || cmd1 == 3)
+		exit(cmd1);
 	while (cmd_i < (argc - 2))
 	{
-		if (cmd_middle_child(&cmd_i, &pid_list, argv, envp))
+		if (cmd_middle_child(&cmd_i, &pid_list, argv, envp) == -1)
 			exit(EXIT_FAILURE);
 	}
 	if (cmd2_child(cmd_i, &pid_list, argv, envp) == -1)
 		exit(EXIT_FAILURE);
 	if (ft_strncmp(argv[1], "here_doc", ft_strlen("here_doc")) == 0)
-		unlink("here_doc");
+		del_heredoc(pid_list);
 	wait_pids(&pid_list, argv);
 	ft_lstclear_pipex(&pid_list);
 }

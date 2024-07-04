@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 14:22:36 by fli               #+#    #+#             */
-/*   Updated: 2024/07/03 12:59:51 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/04 11:36:07 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,6 @@ void	ft_lstadd_back_pipex(t_pids **lst, t_pids *n)
 		last = last->next;
 	}
 }
-
-// void	ft_lst_new_add_back_pipex(pid_t p_id, t_pids **lst)
-// {
-// 	t_pids	*n;
-
-// 	n = ft_lstnew_pipex(p_id);
-// 	if (n == NULL)
-// 		return ;
-// 	ft_lstadd_back_pipex(lst, n);
-// }
 
 void	ft_lstclear_pipex(t_pids **lst)
 {

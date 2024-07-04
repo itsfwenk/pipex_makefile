@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 16:36:22 by fli               #+#    #+#             */
-/*   Updated: 2024/07/01 16:42:49 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/04 10:35:44 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,35 +88,3 @@ int	count_char_gnl(t_gnl **lst)
 	}
 	return (count);
 }
-
-/*#include <fcntl.h>
-#include <stdio.h>
-
-int	main()
-{
-	int	nb_l;
-	int	fd;
-	char *gnl;
-
-	printf("BUFFER SIZE = %d\n", BUFFER_SIZE);
-	gnl = NULL;
-	fd = open("testfile", O_RDONLY);
-	if (fd == -1)
-			printf("Cannot read file.\n");
-	nb_l = 0;
-	while (nb_l < 3)
-	{
-
-		printf("GNL OUTPUT :\n");
-		gnl = get_next_line(fd);
-		if (gnl == NULL)
-			printf("GNL EST NULL\n");
-		//gnl ? printf("%s\n", gnl) : printf("gnl est vide\n");
-		else
-		{
-			printf("%s", gnl);
-			free(gnl);
-		}
-		nb_l++;
-	}
-}*/

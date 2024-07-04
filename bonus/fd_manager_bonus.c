@@ -6,11 +6,29 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 10:16:14 by fli               #+#    #+#             */
-/*   Updated: 2024/07/03 17:52:35 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/04 15:58:19 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex_bonus.h"
+
+static int	fd_heredoc(t_pids	*new_nod)
+{
+	char	*i_to_a;
+	int		fd_hd;
+	char	*heredoc_name;
+
+	i_to_a = ft_itoa(new_nod->here_doc);
+	if (i_to_a == NULL)
+		return (-1);
+	heredoc_name = ft_strjoin("here_doc", i_to_a);
+	if (heredoc_name == NULL)
+		return -1;
+	fd_hd = open(heredoc_name, O_RDONLY);
+	if (fd_hd == -1)
+		return (-1);
+	return (fd_hd);
+}
 
 int	cmd1_fd_manager(char **argv, t_pids	*new_nod)
 {
@@ -19,7 +37,7 @@ int	cmd1_fd_manager(char **argv, t_pids	*new_nod)
 	if (ft_strncmp(argv[1], "here_doc", ft_strlen("here_doc")) != 0)
 		fd_in = open(argv[1], O_RDONLY);
 	else
-		fd_in = open("here_doc", O_RDONLY);
+		fd_in = fd_heredoc(new_nod);
 	if (fd_in == -1)
 	{
 		close_pipe(new_nod->pipefd);

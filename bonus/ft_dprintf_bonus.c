@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 10:30:22 by fli               #+#    #+#             */
-/*   Updated: 2024/07/01 16:44:31 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/04 10:33:02 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,6 @@ void	ft_dprintf_s(va_list arg_ptr, int *count, int fd)
 	ft_putstr_fd(s, fd);
 	*count = *count + ft_strlen(s);
 }
-
-// void	ft_fprintf_put(const char letter, va_list arg_ptr, int *count, int fd)
-// {
-// 	if (letter == 's')
-// 		ft_fprintf_s(arg_ptr, count, fd);
-// }
 
 int	ft_dprintf(int fd, const char *entry, ...)
 {
@@ -60,12 +54,4 @@ int	ft_dprintf(int fd, const char *entry, ...)
 		}
 	}
 	return (count);
-}
-
-void	infile_check(int err)
-{
-	if (err == EACCES)
-		exit(2);
-	if (err == ENOENT)
-		exit(3);
 }

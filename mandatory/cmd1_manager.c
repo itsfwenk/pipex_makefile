@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 10:56:56 by fli               #+#    #+#             */
-/*   Updated: 2024/07/03 16:58:42 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/04 15:04:36 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,10 @@ int	cmd1_child(int *cmd_i, t_pids	**pid_list, char **argv, char **envp)
 	return (close_pipe(new_nod->pipefd), new_nod->status);
 }
 
-int	cmd1_exec(int cmd_i, char **argv, char **envp, t_pids	*new_nod)
+static void	cmd1_exec_part2(char **cmd1, char **envp, t_pids	*new_nod)
 {
-	char	**cmd1;
 	char	*cmd1_path;
 
-	if (argv[cmd_i][0] == '\0')
-	{
-		free(new_nod);
-		exit(5);
-	}
-	cmd1 = ft_split(argv[cmd_i], ' ');
-	if (cmd1 == NULL)
-		return (-1);
 	cmd1_path = get_pathname(envp, cmd1[0]);
 	if (cmd1_path == NULL)
 	{
@@ -63,7 +54,26 @@ int	cmd1_exec(int cmd_i, char **argv, char **envp, t_pids	*new_nod)
 	{
 		free_split(cmd1);
 		free(cmd1_path);
+		free(new_nod);
 		exit(EXIT_FAILURE);
 	}
+}
+
+int	cmd1_exec(int cmd_i, char **argv, char **envp, t_pids	*new_nod)
+{
+	char	**cmd1;
+
+	if (argv[cmd_i][0] == '\0')
+	{
+		free(new_nod);
+		exit(5);
+	}
+	cmd1 = ft_split(argv[cmd_i], ' ');
+	if (cmd1 == NULL)
+	{
+		free(new_nod);
+		exit(EXIT_FAILURE);
+	}
+	cmd1_exec_part2(cmd1, envp, new_nod);
 	return (0);
 }
