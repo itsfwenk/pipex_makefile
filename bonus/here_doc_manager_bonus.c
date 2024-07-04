@@ -6,17 +6,17 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 10:25:55 by fli               #+#    #+#             */
-/*   Updated: 2024/07/04 16:00:05 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/04 18:09:44 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex_bonus.h"
 
-void	check_heredoc(char **argv, t_pids	*new_nod, int *cmd_i)
+void	check_heredoc(char **argv, t_pids	*new_nod)
 {
-	if (ft_strncmp(argv[1], "here_doc", ft_strlen("here_doc")) == 0)
+	if (ft_strncmp(argv[1], "here_doc", 9) == 0)
 	{
-		if (if_here_doc(new_nod, argv, cmd_i) == -1)
+		if (if_here_doc(new_nod, argv) == -1)
 			{
 				free(new_nod);
 				exit(EXIT_FAILURE);
@@ -41,7 +41,7 @@ int	ft_strncmp_pipex(const char *s1, const char *s2, size_t n)
 	return (0);
 }
 
-int	if_here_doc(t_pids	*new_nod, char **argv, int *cmd_i)
+int	if_here_doc(t_pids	*new_nod, char **argv)
 {
 	int		fd_hd;
 	char	*next_line;
@@ -64,8 +64,6 @@ int	if_here_doc(t_pids	*new_nod, char **argv, int *cmd_i)
 	}
 	free(limiter);
 	free(next_line);
-	// *cmd_i = 3;
-	dprintf(2, "cmd_i in if here doc : %d\n", *cmd_i);
 	close(fd_hd);
 	return (get_next_line(-1), 0);
 }

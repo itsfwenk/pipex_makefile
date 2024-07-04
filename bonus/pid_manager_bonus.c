@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 14:22:36 by fli               #+#    #+#             */
-/*   Updated: 2024/07/04 16:14:05 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/04 18:10:38 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	err_infile(char **argv, int status)
 		write(2, argv[1], ft_strlen(argv[1]));
 		write(2, ": Permission denied\n", ft_strlen(": Permission denied\n"));
 	}
-	if (WEXITSTATUS(status) == 3 && ft_strncmp_pipex(argv[1], "here_doc", ft_strlen(argv[1])) != 0)
+	if (WEXITSTATUS(status) == 3 && ft_strncmp_pipex(argv[1], "here_doc", 9) != 0)
 	{
 		write(2, argv[1], ft_strlen(argv[1]));
 		write(2, ": No such file or directory\n", ft_strlen(": No such file or directory\n"));

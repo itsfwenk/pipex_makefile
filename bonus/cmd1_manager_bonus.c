@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 10:56:56 by fli               #+#    #+#             */
-/*   Updated: 2024/07/04 15:55:39 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/04 18:08:22 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int	cmd1_child(int *cmd_i, t_pids	**pid_list, char **argv, char **envp)
 	pid_t	pid1;
 	t_pids	*new_nod;
 
-	new_nod = ft_lstnew_pipex((*cmd_i)++);
+	new_nod = ft_lstnew_pipex((*cmd_i));
 	if (new_nod == NULL)
 		return (-1);
 	ft_lstadd_back_pipex(pid_list, new_nod);
-	check_heredoc(argv, new_nod, cmd_i);
+	check_heredoc(argv, new_nod);
 	if (pipe((new_nod)->pipefd) == -1)
 		exit(EXIT_FAILURE);
 	pid1 = fork();

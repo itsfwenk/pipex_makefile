@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 10:16:14 by fli               #+#    #+#             */
-/*   Updated: 2024/07/04 15:58:19 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/04 18:09:35 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	cmd1_fd_manager(char **argv, t_pids	*new_nod)
 {
 	int	fd_in;
 
-	if (ft_strncmp(argv[1], "here_doc", ft_strlen("here_doc")) != 0)
+	if (ft_strncmp(argv[1], "here_doc", 9) != 0)
 		fd_in = open(argv[1], O_RDONLY);
 	else
 		fd_in = fd_heredoc(new_nod);
@@ -66,7 +66,7 @@ int	cmd2_fd_manager(int cmd_i, char **argv, t_pids	*new_nod, t_pids	**pid_list)
 {
 	int	fd_out;
 
-	if (ft_strncmp(argv[1], "here_doc", ft_strlen("here_doc")) != 0)
+	if (ft_strncmp(argv[1], "here_doc", 9) != 0)
 		fd_out = open(argv[cmd_i + 1], O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	else
 		fd_out = open(argv[cmd_i + 1], O_WRONLY | O_CREAT | O_APPEND, 0644);

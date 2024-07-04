@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 10:02:34 by fli               #+#    #+#             */
-/*   Updated: 2024/07/04 16:08:19 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/04 18:10:09 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,8 @@ int	main(int argc, char **argv, char **envp)
 		return (0);
 	pid_list = NULL;
 	cmd_i = 2;
-	if (ft_strncmp(argv[1], "here_doc", ft_strlen("here_doc")) == 0)
+	if (ft_strncmp(argv[1], "here_doc", 9) == 0)
 		cmd_i++;
-	// if (ft_strncmp(argv[1], "here_doc", ft_strlen("here_doc")) == 0)
-	// 	if_here_doc(&pid_list, argv, &cmd_i);
 	cmd1 = cmd1_child(&cmd_i, &pid_list, argv, envp);
 	if (cmd1 == 2 || cmd1 == 3)
 		exit(cmd1);
@@ -57,7 +55,7 @@ int	main(int argc, char **argv, char **envp)
 	}
 	if (cmd2_child(cmd_i, &pid_list, argv, envp) == -1)
 		exit(EXIT_FAILURE);
-	if (ft_strncmp(argv[1], "here_doc", ft_strlen("here_doc")) == 0)
+	if (ft_strncmp(argv[1], "here_doc", 9) == 0)
 		del_heredoc(pid_list);
 	wait_pids(&pid_list, argv);
 	ft_lstclear_pipex(&pid_list);

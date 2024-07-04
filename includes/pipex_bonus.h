@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 14:46:04 by fli               #+#    #+#             */
-/*   Updated: 2024/07/04 14:23:23 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/04 18:08:20 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,9 @@ void	err_infile(char **argv, int status);
 
 int	ft_strncmp_pipex(const char *s1, const char *s2, size_t n);
 
-int	if_here_doc(t_pids	*new_nod, char **argv, int *cmd_i);
+int	if_here_doc(t_pids	*new_nod, char **argv);
 
-void	check_heredoc(char **argv, t_pids	*new_nod, int *cmd_i);
+void	check_heredoc(char **argv, t_pids	*new_nod);
 
 int	heredoc_creator(t_pids	*new_nod);
 
