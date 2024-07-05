@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 14:46:04 by fli               #+#    #+#             */
-/*   Updated: 2024/07/05 10:59:05 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/05 14:06:23 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,6 @@ int		ft_dprintf(int fd, const char *entry, ...);
 
 int	infile_check(int err);
 
-void	err_infile(char **argv, int status);
-
 int	ft_strncmp_pipex(const char *s1, const char *s2, size_t n);
 
 int	if_here_doc(t_pids	*new_nod, char **argv);
@@ -92,8 +90,6 @@ int	cmd_middle_child(int *cmd_i, t_pids	**pid_list, char **argv, char **envp);
 int	cmd_middle_exec(int cmd_i, char **argv, char **envp, t_pids	**pid_list);
 
 void	free_split(char	**split);
-
-void	cmd_null(int status);
 
 void	del_heredoc(t_pids	*pid_list);
 

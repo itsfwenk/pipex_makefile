@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 10:02:34 by fli               #+#    #+#             */
-/*   Updated: 2024/07/05 11:25:17 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/05 14:08:59 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	cmd_exec(char **cmd, char *cmd_path, char **envp)
 {
-	if (execve(cmd_path, (char *const*)cmd, (char *const *)envp) == -1)
+	if (execve(cmd_path, (char *const *)cmd, (char *const *)envp) == -1)
 		return (-1);
 	return (0);
 }

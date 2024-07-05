@@ -6,13 +6,13 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 11:40:12 by fli               #+#    #+#             */
-/*   Updated: 2024/07/03 16:16:49 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/05 14:03:12 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
- char	*get_pathname(char **envp, char *cmd)
+char	*get_pathname(char **envp, char *cmd)
 {
 	int		i;
 	char	**path_tab;
@@ -52,8 +52,8 @@ int	tab_len(char **path_tab)
 
 char	*get_env(char **envp)
 {
-	int	i;
-	char		*path_s;
+	int		i;
+	char	*path_s;
 
 	i = 0;
 	while (envp[i] != NULL)

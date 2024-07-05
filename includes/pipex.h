@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 14:46:04 by fli               #+#    #+#             */
-/*   Updated: 2024/07/05 13:41:31 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/05 14:00:58 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ t_pids	*ft_lstnew_pipex(int cmd_i);
 
 void	ft_lstadd_back_pipex(t_pids **lst, t_pids *n);
 
-void	ft_lst_new_add_back_pipex(pid_t p_id, t_pids **lst);
-
 void	ft_lstclear_pipex(t_pids **lst);
 
 void	wait_pids(t_pids **lst, char **argv);
@@ -76,10 +74,6 @@ void	ft_dprintf_s(va_list arg_ptr, int *count, int fd);
 int		ft_dprintf(int fd, const char *entry, ...);
 
 int	infile_check(int err);
-
-void	err_infile(char **argv, int status);
-
-void	cmd_null(int status);
 
 void	free_split(char	**split);
 

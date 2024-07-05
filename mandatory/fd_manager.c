@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 10:16:14 by fli               #+#    #+#             */
-/*   Updated: 2024/07/03 13:37:16 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/05 13:56:01 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	cmd1_fd_manager(char **argv, t_pids	*new_nod)
 	return (0);
 }
 
-int	cmd2_fd_manager(int cmd_i, char **argv, t_pids	*new_nod, t_pids	**pid_list)
+int	cmd2_fd_manager(int cmd_i, char **argv, t_pids *new_nod, t_pids **pid_list)
 {
 	int	fd_out;
 
@@ -53,8 +53,8 @@ int	cmd2_fd_manager(int cmd_i, char **argv, t_pids	*new_nod, t_pids	**pid_list)
 int	infile_check(int err)
 {
 	if (err == EACCES)
-		return(2);
+		return (2);
 	if (err == ENOENT)
-		return(3);
+		return (3);
 	return (0);
 }

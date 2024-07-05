@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 11:31:49 by fli               #+#    #+#             */
-/*   Updated: 2024/07/05 13:51:06 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/05 13:56:35 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	cmd2_child(int cmd_i, t_pids	**pid_list, char **argv, char **envp)
 
 	new_nod = ft_lstnew_pipex(cmd_i);
 	if (new_nod == NULL)
-		fail_cleaner(pid_list);;
+		fail_cleaner(pid_list);
 	ft_lstadd_back_pipex(pid_list, new_nod);
 	if (pipe((new_nod)->pipefd) == -1)
 		exit(EXIT_FAILURE);
@@ -40,9 +40,9 @@ int	cmd2_child(int cmd_i, t_pids	**pid_list, char **argv, char **envp)
 
 static void	exec_cmd2_fail(char **cmd2, char *cmd2_path, t_pids	**pid_list)
 {
-		free_split(cmd2);
-		free(cmd2_path);
-		ft_lstclear_pipex(pid_list);
+	free_split(cmd2);
+	free(cmd2_path);
+	ft_lstclear_pipex(pid_list);
 }
 
 static void	cmd2_exec_part2(char **cmd2, char **envp, t_pids	**pid_list)

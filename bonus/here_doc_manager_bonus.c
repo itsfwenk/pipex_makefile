@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 10:25:55 by fli               #+#    #+#             */
-/*   Updated: 2024/07/05 13:33:26 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/05 14:08:16 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	check_heredoc(char **argv, t_pids	*new_nod)
 	if (ft_strncmp(argv[1], "here_doc", 9) == 0)
 	{
 		if (if_here_doc(new_nod, argv) == -1)
-			{
-				free(new_nod);
-				exit(EXIT_FAILURE);
-			}
+		{
+			free(new_nod);
+			exit(EXIT_FAILURE);
+		}
 	}
 	return ;
 }

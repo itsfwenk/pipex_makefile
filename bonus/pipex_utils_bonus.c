@@ -6,13 +6,13 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 11:40:12 by fli               #+#    #+#             */
-/*   Updated: 2024/07/04 11:58:22 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/05 14:07:58 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex_bonus.h"
 
- char	*get_pathname(char **envp, char *cmd)
+char	*get_pathname(char **envp, char *cmd)
 {
 	int		i;
 	char	**path_tab;
@@ -21,7 +21,7 @@
 	if (cmd == NULL)
 		return (NULL);
 	if (access(cmd, X_OK) == 0)
-			return (cmd);
+		return (cmd);
 	path_tab = get_path_tab(envp);
 	if (path_tab == NULL)
 		return (NULL);
@@ -52,8 +52,8 @@ int	tab_len(char **path_tab)
 
 char	*get_env(char **envp)
 {
-	int	i;
-	char		*path_s;
+	int		i;
+	char	*path_s;
 
 	i = 0;
 	while (envp[i] != NULL)
