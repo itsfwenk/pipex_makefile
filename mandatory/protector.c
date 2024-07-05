@@ -6,16 +6,14 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:55:42 by fli               #+#    #+#             */
-/*   Updated: 2024/07/05 10:59:41 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/05 13:53:39 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/pipex_bonus.h"
+#include "../includes/pipex.h"
 
-void	fail_cleaner(char **argv, t_pids **pid_list)
+void	fail_cleaner(t_pids **pid_list)
 {
-	if (ft_strncmp(argv[1], "here_doc", 9) == 0)
-		del_heredoc(*pid_list);
 	ft_lstclear_pipex(pid_list);
 	exit(EXIT_FAILURE);
 }

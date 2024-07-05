@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 10:49:20 by fli               #+#    #+#             */
-/*   Updated: 2024/07/05 11:30:30 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/05 12:58:58 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	cmd_middle_child(int *cmd_i, t_pids	**pid_list, char **argv, char **envp)
 	if (pid_i == 0)
 	{
 		if (cmd_fd_manager(new_nod) == -1)
-			return (ft_lstclear_pipex(&pid_list), -1);
+			return (ft_lstclear_pipex(pid_list), -1);
 		if (cmd_middle_exec(new_nod->cmd_i, argv, envp, pid_list) == -1)
 			return (close_and_clear(new_nod->pipefd, pid_list), -1);
 	}

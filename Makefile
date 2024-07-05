@@ -6,7 +6,7 @@
 #    By: fli <fli@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/14 16:42:15 by fli               #+#    #+#              #
-#    Updated: 2024/07/05 10:58:21 by fli              ###   ########.fr        #
+#    Updated: 2024/07/05 13:53:13 by fli              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ CFILES = cmd1_manager.c \
 		 pid_manager.c \
 		 pipex_utils.c \
 		 pipex.c \
+		 protector.c \
 
 BFILES = cmd1_manager_bonus.c \
 		 fd_manager_bonus.c \
@@ -39,7 +40,7 @@ BFILES = cmd1_manager_bonus.c \
 		 middle_cmd_manager_bonus.c \
 		 pid_manager_bonus.c \
 		 pipex_utils_bonus.c \
-		 protector.c \
+		 protector_bonus.c \
 
 SRC_MANDATORY = $(addprefix $(MANDATORY), $(CFILES))
 

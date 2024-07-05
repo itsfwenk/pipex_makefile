@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 10:25:55 by fli               #+#    #+#             */
-/*   Updated: 2024/07/04 18:09:44 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/05 13:33:26 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ int	heredoc_creator(t_pids	*new_nod)
 	fd_hd = open("here_doc0", O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	while (fd_hd == -1)
 	{
-		dprintf(2, "here doc no perm\n");
 		i++;
 		i_to_a = ft_itoa(i);
 		if (i_to_a == NULL)
@@ -87,7 +86,6 @@ int	heredoc_creator(t_pids	*new_nod)
 		hd_name = ft_strjoin("here_doc", i_to_a);
 		if (hd_name == NULL)
 			return (free(i_to_a), -1);
-		dprintf(2, "hd_name : %s\n", hd_name);
 		fd_hd = open(hd_name, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 		free(i_to_a);
 		free(hd_name);
