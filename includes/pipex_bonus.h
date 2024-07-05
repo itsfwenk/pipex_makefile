@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 14:46:04 by fli               #+#    #+#             */
-/*   Updated: 2024/07/04 18:08:20 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/05 10:59:05 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,11 @@ int	cmd_middle_exec(int cmd_i, char **argv, char **envp, t_pids	**pid_list);
 void	free_split(char	**split);
 
 void	cmd_null(int status);
+
+void	del_heredoc(t_pids	*pid_list);
+
+void	fail_cleaner(char **argv, t_pids **pid_list);
+
+void	close_and_clear(int	pipe[2], t_pids	**pid_list);
 
 #endif

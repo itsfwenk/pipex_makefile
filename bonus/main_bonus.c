@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 10:02:34 by fli               #+#    #+#             */
-/*   Updated: 2024/07/04 18:10:09 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/05 11:25:17 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	cmd_exec(char **cmd, char *cmd_path, char **envp)
 	return (0);
 }
 
-static void	del_heredoc(t_pids	*pid_list)
+void	del_heredoc(t_pids	*pid_list)
 {
 	char	*heredoc_name;
 	char	*i_to_a;
